@@ -21,7 +21,7 @@ function chooseDecade(year, event) {
 }
 
 export default
-class DecadePanel extends React.Component {
+  class DecadePanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,7 +70,8 @@ class DecadePanel extends React.Component {
           [`${prefixCls}-last-century-cell`]: isLast,
           [`${prefixCls}-next-century-cell`]: isNext,
         };
-        const content = `${dStartDecade}-${dEndDecade}`;
+        // const content = `${dStartDecade}-${dEndDecade}`;
+        const buddistContent = `${(dStartDecade + 543)}-${(dEndDecade + 543)}`;
         let clickHandler;
         if (isLast) {
           clickHandler = this.previousCentury;
@@ -88,7 +89,7 @@ class DecadePanel extends React.Component {
           <a
             className={`${prefixCls}-decade`}
           >
-            {content}
+            {buddistContent}
           </a>
         </td>);
       });
@@ -106,7 +107,7 @@ class DecadePanel extends React.Component {
           />
 
           <div className={`${prefixCls}-century`}>
-            {startYear}-{endYear}
+            {startYear + 543}-{endYear + 543}
           </div>
           <a
             className={`${prefixCls}-next-century-btn`}
@@ -118,7 +119,7 @@ class DecadePanel extends React.Component {
         <div className={`${prefixCls}-body`}>
           <table className={`${prefixCls}-table`} cellSpacing="0" role="grid">
             <tbody className={`${prefixCls}-tbody`}>
-            {decadesEls}
+              {decadesEls}
             </tbody>
           </table>
         </div>

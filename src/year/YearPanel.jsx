@@ -20,7 +20,7 @@ function chooseYear(year) {
 }
 
 export default
-class YearPanel extends React.Component {
+  class YearPanel extends React.Component {
   constructor(props) {
     super(props);
     this.prefixCls = `${props.rootPrefixCls}-year-panel`;
@@ -43,9 +43,11 @@ class YearPanel extends React.Component {
       for (let colIndex = 0; colIndex < COL; colIndex++) {
         const year = previousYear + index;
         const content = String(year);
+        const buddistContent = String(year + 543);
         years[rowIndex][colIndex] = {
           content,
           year,
+          buddistContent,
           title: content,
         };
         index++;
@@ -90,7 +92,7 @@ class YearPanel extends React.Component {
             <a
               className={`${prefixCls}-year`}
             >
-              {yearData.content}
+              {yearData.buddistContent}
             </a>
           </td>);
       });
@@ -114,7 +116,7 @@ class YearPanel extends React.Component {
               title={locale.decadeSelect}
             >
               <span className={`${prefixCls}-decade-select-content`}>
-                {startYear}-{endYear}
+                {startYear + 543}-{endYear + 543}
               </span>
               <span className={`${prefixCls}-decade-select-arrow`}>x</span>
             </a>
@@ -129,7 +131,7 @@ class YearPanel extends React.Component {
           <div className={`${prefixCls}-body`}>
             <table className={`${prefixCls}-table`} cellSpacing="0" role="grid">
               <tbody className={`${prefixCls}-tbody`}>
-              {yeasEls}
+                {yeasEls}
               </tbody>
             </table>
           </div>

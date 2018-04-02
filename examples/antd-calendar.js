@@ -15,6 +15,8 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'moment/locale/en-gb';
 
+import thTH from 'rc-calendar/src/locale/th_TH';
+
 const format = 'YYYY-MM-DD HH:mm:ss';
 const cn = location.search.indexOf('cn') !== -1;
 
@@ -112,6 +114,7 @@ class Demo extends React.Component {
       locale={cn ? zhCN : enUS}
       style={{ zIndex: 1000 }}
       dateInputPlaceholder="please input"
+      locale={thTH}
       formatter={getFormat(state.showTime)}
       disabledTime={state.showTime ? disabledTime : null}
       timePicker={state.showTime ? timePickerElement : null}
@@ -167,15 +170,15 @@ class Demo extends React.Component {
             ({ value }) => {
               return (
                 <span tabIndex="0">
-                <input
-                  placeholder="please select"
-                  style={{ width: 250 }}
-                  disabled={state.disabled}
-                  readOnly
-                  tabIndex="-1"
-                  className="ant-calendar-picker-input ant-input"
-                  value={value && value.format(getFormat(state.showTime)) || ''}
-                />
+                  <input
+                    placeholder="please select"
+                    style={{ width: 250 }}
+                    disabled={state.disabled}
+                    readOnly
+                    tabIndex="-1"
+                    className="ant-calendar-picker-input ant-input"
+                    value={value && value.year() + 543}
+                  />
                 </span>
               );
             }

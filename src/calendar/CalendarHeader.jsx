@@ -39,8 +39,8 @@ const CalendarHeader = createReactClass({
     return {
       enableNext: 1,
       enablePrev: 1,
-      onPanelChange() {},
-      onValueChange() {},
+      onPanelChange() { },
+      onValueChange() { },
     };
   },
 
@@ -87,7 +87,8 @@ const CalendarHeader = createReactClass({
       onClick={showTimePicker ? null : () => this.showYearPanel('date')}
       title={locale.yearSelect}
     >
-      {value.format(locale.yearFormat)}
+      {/* {value.format(locale.yearFormat)} */}
+      {value.year() + 543}
     </a>);
     const month = (<a
       className={`${prefixCls}-month-select`}
@@ -113,7 +114,7 @@ const CalendarHeader = createReactClass({
       my = [year, month, day];
     }
     return (<span className={selectClassName}>
-    {toFragment(my)}
+      {toFragment(my)}
     </span>);
   },
 
